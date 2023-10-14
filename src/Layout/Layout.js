@@ -4,7 +4,7 @@ import Routes from "./Routes";
 function Layout () {
     return (
         <div>
-            <h1>Hello World</h1>
+            <h1>Hello World!</h1>
             <Routes />
         </div>
     );

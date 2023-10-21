@@ -18,7 +18,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="list-item">
-              <Link className="list-link current anchor" to="/blog">
+              <Link className="list-link anchor" to="/blog">
                 Blog
               </Link>
             </li>

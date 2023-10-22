@@ -30,8 +30,12 @@ function Navbar() {
   }, []);
 
   //redirections for buttons
-  const redirectToGitHub = () => {};
-  const redirectToLinkedIn = () => {};
+  const redirectToGitHub = () => {
+    window.open("https://github.com/RVPdev", "_blank");
+  };
+  const redirectToLinkedIn = () => {
+    window.open("https://www.linkedin.com/in/renatovp/", "_blank");
+  };
 
   return (
     <header className={`header ${active ? "activated" : ""}`} id="header">
@@ -72,11 +76,11 @@ function Navbar() {
         </div>
         {/* division of menu and buttons */}
         <div className="list list-right">
-          <button className="btn place-items-center" id="git-btn">
+          <button className="btn place-items-center" id="git-btn" onClick={redirectToGitHub}>
             <i className="ri-github-fill git-icon"></i>
           </button>
 
-          <button className="btn place-items-center" id="in-btn">
+          <button className="btn place-items-center" id="in-btn" onClick={redirectToLinkedIn}>
             <i className="ri-linkedin-box-fill in-icon"></i>
           </button>
 

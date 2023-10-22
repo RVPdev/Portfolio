@@ -159,12 +159,14 @@ i {
 
 .header.activated {
     box-shadow: 0 1px .5rem var(--transparent-light-color);
+    background-color: red;
 }
 
 .menu.activated {
     box-shadow: 1px 1px 1rem var(--transparent-light-color);
     opacity: 1;
     transform: scale(1);
+
 }
 
 .menu-toggle-icon.activated .open-menu-icon {

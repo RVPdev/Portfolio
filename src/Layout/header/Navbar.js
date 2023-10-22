@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Navbar() {
+  const [active, setActive] = useState(false); // state variable in charge for scrolling down
+  const [buttonActive, setButtonActive] = useState(false); //initialize state for the menu
+
+  // Function to handle scroll
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset >= 15) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  };
+
+  // function handle click
+
+  const clickHanddler = () => {
+    setButtonActive(!buttonActive);
+  }
+
+  // Adding the scroll event listener when component mounts and cleaning up when it unmounts
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="header" id="header">
+    <header className={`header ${active ? "activated" : ""}`} id="header">
       <nav className="navbar container">
         <Link to="/" className="logo anchor">
           <h2>Renato V</h2>
         </Link>
 
         {/* menu for easier separation */}
-        <div className="menu" id="menu">
+        <div className={`menu ${buttonActive ? "activated" : ""}`} id="menu">
           <ul className="list">
             <li className="list-item">
               <Link className="list-link current anchor" to="/">
@@ -50,8 +77,9 @@ function Navbar() {
           </button>
 
           <button
-            className="btn place-items-center screen-lg-hidden menu-toggle-icon"
+            className={`btn place-items-center screen-lg-hidden menu-toggle-icon ${buttonActive ? "activated" : ""} `}
             id="menu-toggle-icon"
+            onClick={clickHanddler}
           >
             <i className="ri-menu-3-line open-menu-icon"></i>
             <i className="ri-close-line close-menu-icon"></i>

@@ -29,6 +29,10 @@ function Navbar() {
     };
   }, []);
 
+  //redirections for buttons
+  const redirectToGitHub = () => {};
+  const redirectToLinkedIn = () => {};
+
   return (
     <header className={`header ${active ? "activated" : ""}`} id="header">
       <nav className="navbar container">
